@@ -1,0 +1,15 @@
+[Unit]
+Description=Setup node 
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/node-setup 
+RemainAfterExit=yes
+TimeoutSec=0
+
+# Output needs to appear in instance console output
+StandardOutput=journal+console
+
+[Install]
+WantedBy=multi-user.target
